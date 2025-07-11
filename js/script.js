@@ -34,3 +34,17 @@ ul.appendChild(li4);
 const li5 = document.createElement('li');
 li5.textContent = numCinque;
 ul.appendChild(li5);
+
+//Parte un timer di 30 secondi 
+const countdownEl = document.getElementById('countdown');
+let tempo = 30;
+
+//funzione che si ripete ogni secondo togliendo 1 secondo da tempo
+const timer = setInterval(() => {
+    countdownEl.textContent = tempo;
+    tempo--;
+    if (tempo === 0) {
+        clearInterval(timer);
+        countdownEl.textContent = "Tempo scaduto!!!";
+    }
+}, 1000);
