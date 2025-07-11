@@ -12,4 +12,25 @@ const numTre = numeroCasuale();
 const numQuattro = numeroCasuale();
 const numCinque = numeroCasuale();
 
-console.log(numUno, numDue, numTre, numQuattro, numCinque)
+//Portiamo i numeri casuali in pagina html
+const ul = document.querySelector('#numbers-list');
+
+const li1 = document.createElement('li');
+li1.textContent = numUno;
+ul.appendChild(li1);
+
+const li2 = document.createElement('li');
+li2.textContent = numDue;
+ul.appendChild(li2);
+
+const li3 = document.createElement('li');
+li3.textContent = numTre;
+ul.appendChild(li3);
+
+const li4 = document.createElement('li');
+li4.textContent = numQuattro;
+ul.appendChild(li4);
+
+const li5 = document.createElement('li');
+li5.textContent = numCinque;
+ul.appendChild(li5);
