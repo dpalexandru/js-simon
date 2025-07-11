@@ -48,3 +48,11 @@ const timer = setInterval(() => {
         countdownEl.textContent = "Tempo scaduto!!!";
     }
 }, 1000);
+
+//appare il campo input dopo 10 secondi
+const form = document.getElementById('answers-form');
+
+setTimeout(() => {
+    ul.innerHTML = '';
+    form.classList.remove('d-none');
+}, 10000);
