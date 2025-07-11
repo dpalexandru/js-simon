@@ -12,7 +12,7 @@ const numTre = numeroCasuale();
 const numQuattro = numeroCasuale();
 const numCinque = numeroCasuale();
 
-//Portiamo i numeri casuali in pagina html
+//Porto i numeri casuali in pagina html
 const ul = document.querySelector('#numbers-list');
 
 const li1 = document.createElement('li');
@@ -39,7 +39,7 @@ ul.appendChild(li5);
 const countdownEl = document.getElementById('countdown');
 let tempo = 30;
 
-//funzione che si ripete ogni secondo togliendo 1 secondo da tempo
+//Funzione che si ripete ogni secondo togliendo 1 secondo da tempo
 const timer = setInterval(() => {
     countdownEl.textContent = tempo;
     tempo--;
@@ -49,10 +49,26 @@ const timer = setInterval(() => {
     }
 }, 1000);
 
-//appare il campo input dopo 10 secondi
+//Appare il campo input dopo 10 secondi
 const form = document.getElementById('answers-form');
 
 setTimeout(() => {
     ul.innerHTML = '';
     form.classList.remove('d-none');
 }, 10000);
+
+//Salvo i dati inseriti dall'utente in un array
+const button = document.querySelector('.btn');
+
+button.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // creo array con i dati inseriti al click
+    const inputs = form.querySelectorAll('input');
+    const risposteUtente = [];
+
+    for (let i = 0; i < inputs.length; i++) {
+        const valore = parseInt(inputs[i].value);
+        risposteUtente.push(valore);
+    }
+});
