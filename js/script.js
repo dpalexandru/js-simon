@@ -11,6 +11,8 @@ const numDue = numeroCasuale();
 const numTre = numeroCasuale();
 const numQuattro = numeroCasuale();
 const numCinque = numeroCasuale();
+const numeriDaMemorizzare = [numUno, numDue, numTre, numQuattro, numCinque];
+
 
 //Porto i numeri casuali in pagina html
 const ul = document.querySelector('#numbers-list');
@@ -63,12 +65,27 @@ const button = document.querySelector('.btn');
 button.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // creo array con i dati inseriti al click
+    //Creo array con i dati inseriti al click
     const inputs = form.querySelectorAll('input');
     const risposteUtente = [];
 
     for (let i = 0; i < inputs.length; i++) {
         const valore = parseInt(inputs[i].value);
         risposteUtente.push(valore);
+    }
+
+    // Confronto quanti numeri sono stati indovinati
+    const numeriIndovinati = [];
+
+    for (let i = 0; i < risposteUtente.length; i++) {
+        const numero = risposteUtente[i];
+        if (numeriDaMemorizzare.includes(numero) && !numeriIndovinati.includes(numero)) {
+            numeriIndovinati.push(numero);
+        }
+
+        // Mostro il risultato all'utente
+        const message = document.getElementById('message');
+        message.textContent = `Hai indovinato ${numeriIndovinati.length} numero/i: ${numeriIndovinati.join(', ')}`;
+
     }
 });
